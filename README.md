@@ -40,36 +40,67 @@ Diff = A ⊕ B ⊕ Bin
 
 Borrow out = A'Bin + A'B + BBin
 
-**Truthtable**
+## Truthtable
+
+![image](https://github.com/user-attachments/assets/43e94ee0-8142-4fcb-8e45-80452f7f53a1)
+
+![image](https://github.com/user-attachments/assets/3f5d8dcd-9b95-41d5-8bad-02702315c6dd)
 
 # Procedure
 
-Write the detailed procedure here
+Full Adder:
+
+1.Open Quartus II and create a new project.
+
+2.Use schematic design entry to draw the full adder circuit.
+
+3.The circuit consists of XOR, AND, and OR gates.
+
+4.Compile the design, verify its functionality through simulation.
+
+5.Implement the design on the target device and program it.
+
+Full Subtractor:
+
+1.Follow the same steps as for the full adder.
+
+2.Draw the full subtractor circuit using schematic design.
+
+3.The circuit includes XOR, AND, OR gates to perform subtraction.
+
+4.Compile, simulate, implement, and program the design similarly to the full adder.
 
 # Program:
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-
-DEVELOPED BY : ANTONY ABISHEK 
+```
+NAME : ANTONY ABISHEK
 
 REGISTER NUMBER : 212223240009
-*/
 
-![EX NO 4 (DIGITAL ELECTRONICS )PICS](https://github.com/user-attachments/assets/1b49e508-e97a-4db4-a8b9-9ac41842ce21)
-
-![image](https://github.com/user-attachments/assets/ba8bff6c-f3e9-4e42-bf57-a887c71eac03)
+module ex04(sum,cout,df,bo,a,b,cin,bin);
+output sum,cout,df,bo;
+input a,b,cin,bin;
+wire s1,c1,c2,w1,w2,w3;
+xor (s1,a,b);
+and (c1,a,b);
+xor(sum,s1,cin);
+and(c2,s1,cin);
+or(cout,c2,c1);
+assign w1=a^b;
+assign w2=(~a&b);
+assign w3=(~w1&bin);
+assign df=w1^bin;
+assign bo=w2|w3;
+endmodule
+```
 
 # RTL Schematic
 
-![image](https://github.com/user-attachments/assets/d4baa1ad-bcf6-4bea-ae37-37b75d3e4ac3)
-
-![image](https://github.com/user-attachments/assets/51dbd706-3fcb-49cf-a2e2-cc71c800b5b4)
+![image](https://github.com/user-attachments/assets/2cd86824-64fe-4e0f-a9d1-e5dc63013bb2)
 
 # Output Timing Waveform
 
-![image](https://github.com/user-attachments/assets/f995fa00-b200-4cb3-a2f8-11ad38c97891)
-
-![image](https://github.com/user-attachments/assets/1c569991-b7b6-4044-a911-68bc147c4adf)
+![image](https://github.com/user-attachments/assets/13a66421-3477-49b2-82ff-035cc9399a3b)
 
 # Result:
 
